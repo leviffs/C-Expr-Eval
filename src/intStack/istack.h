@@ -12,8 +12,16 @@
 /*******************
  * PRIVATE TYPE DECLARATION
  ********************/
+struct node{
+    int data;
+    struct node* next;
+};
+typedef struct node Node2_t;
 
-
+struct stack{
+    Node2_t* head;
+};
+typedef struct stack IntStack_t;
 
 
 /*********************

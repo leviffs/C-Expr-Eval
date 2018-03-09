@@ -1,3 +1,4 @@
+
 /**
  *	 Implementation for an infix integer algebraic expression evaluator.
  *     Converts in-fix expression to postfix notation, evaluates expression.
@@ -234,6 +235,11 @@ Queue_t toPostfix(Queue_t infix_tokens)
 // POST: returns the result of evaluating the post-fix expression.
 int evalExpr(Queue_t expression)
 {
+	int i;
+	
+	if(isOperand(argv[1])){
+		istackPush(argv[1]);
+	}
 
 	printf("NOT IMPLEMENTED YET -- that's your job ;-)\n");
 	return -1;  // STUB

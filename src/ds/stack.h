@@ -11,6 +11,7 @@
 /*********************
  *  PUBLIC INTERFACE
  *********************/
+ 
 typedef LinkedList_t Stack_t;
 
 Stack_t stackCreate();
