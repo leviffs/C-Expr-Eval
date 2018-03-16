@@ -19,7 +19,7 @@ Node2_t* NodeCreat(int value) {
     node->next = NULL;
     return node;
 }
-void nodePrint(Node2_t node) {
+void node2Print(Node2_t node) {
     printf("|\t%d\t|\n", node.data);
 }
 
@@ -48,7 +48,7 @@ void istackPrint( IntStack_t stack  ){
    Node2_t* cur = stack.head->next;
    printf("\nStack:\n");
    while (cur != NULL) {
-       nodePrint(*cur);
+       node2Print(*cur);
        cur = cur->next;
    }
    printf("\n\n");
@@ -90,7 +90,7 @@ int istackPop( IntStack_t *stack ){
  * PRE: ! istackIsFull( stack )
  * POST: istackTop( stack ) == item
  */
-int istackPush( IntStack_t *stack, int item){
+void istackPush( IntStack_t *stack, int item){
    Node2_t* newNode = NodeCreat(item);
      newNode->next = stack->head->next;
      stack->head->next = newNode;

@@ -233,15 +233,52 @@ Queue_t toPostfix(Queue_t infix_tokens)
 // PRE: postfix contains a valid post-fix algebraic expression, as defined above
 // 		  Variable substitutions still need to be performed.
 // POST: returns the result of evaluating the post-fix expression.
+
+
 int evalExpr(Queue_t expression)
 {
-	int i;
+	int i, value, op;
+	char* item;
 	
-	if(isOperand(argv[1])){
-		istackPush(argv[1]);
-	}
-
-	printf("NOT IMPLEMENTED YET -- that's your job ;-)\n");
-	return -1;  // STUB
+	IntStack_t newStack = istackCreate();
+	
+	while(qIsEmpty(expression)){
+		
+		item = qDequeue(&expression);
+		if(isOperand(item)){
+			value = operandValue(item);
+			istackPush(&newStack, value);
+		}
+		if(isOperator(item)){
+			char math = item[0];
+			int right = istackPop(&newStack);
+			printf("1\n");
+			int left = istackPop(&newStack);
+			printf("2\n");
+	
+			switch(math)
+			{
+				case '+':
+						value = left + right;
+						break;
+				case '-':
+						value = left - right;
+						break;
+				case '/':
+						value = left / right;
+						break;
+				case '*':
+						value = left * right;
+						break;
+				/*case '%':
+						value = (float)left % (float)right;
+						break;*/
+				}
+		}
+	
+		istackPush(&newStack, value);
+		}
+	//assert(!istackIsEmpty(newStack));
+	return(istackPop(&newStack)); 
 
 }
